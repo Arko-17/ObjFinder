@@ -1,6 +1,7 @@
 status="";
 video="";
 object=[];
+objects=[]
 function draw(){
     image(video,0,0,480,380);
     if(status !=""){
@@ -14,6 +15,9 @@ function draw(){
             noFill();
             stroke("#FF0000");
             rect(object[i].x,object[i].y,object[i].width,object[i].height,);
+            object=objects
+            video.stop()
+            objectDetector.detect(gotResult)
         }
     }
     }
