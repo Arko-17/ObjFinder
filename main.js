@@ -9,6 +9,7 @@ function draw(){
         for(i=0;i<object.length;i++){
             document.getElementById("status").innerHTML="Status: Object has been detected";
             document.getElementById("objectcount").innerHTML="No. of objects detected are: "+object.length;
+            objectname=document.getElementById("objname")
     
             percent=floor(object[i].confidence*100);
             text(object[i].label+" "+percent+" %",object[i].x+15,object[i].y+15);
@@ -18,7 +19,12 @@ function draw(){
             object=objects
             video.stop()
             objectDetector.detect(gotResult)
-        }
+         if (object.label=objectname)
+         {
+             document.getElementById("status").innerHTML="Object Detected"
+             video.stio()
+         }
+       }
     }
     }
 function setup(){
