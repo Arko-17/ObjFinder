@@ -1,7 +1,7 @@
 status="";
 video="";
 object=[];
-objects=[]
+objects=[];
 function draw(){
     image(video,50,50,480,380);
     if(status !=""){
@@ -9,20 +9,20 @@ function draw(){
         for(i=0;i<object.length;i++){
             document.getElementById("status").innerHTML="Status: Object has been detected";
             document.getElementById("objectcount").innerHTML="No. of objects detected are: "+object.length;
-            objectname=document.getElementById("objname")
+            objectname=document.getElementById("objname");
     
             percent=floor(object[i].confidence*100);
             text(object[i].label+" "+percent+" %",object[i].x+15,object[i].y+15);
             noFill();
             stroke("#FF0000");
             rect(object[i].x,object[i].y,object[i].width,object[i].height,);
-            object=objects
-            video.stop()
-            objectDetector.detect(gotResult)
-         if (object.label=objectname)
+            object=objects;
+            video.stop();
+            objectDetector.detect(gotResult);
+         if (object.label=objectname);
          {
-             document.getElementById("status").innerHTML="Object Detected"
-             video.stio()
+             document.getElementById("status").innerHTML="Object Detected";
+             video.stop();
          }
        }
     }
@@ -32,7 +32,7 @@ canvas=createCanvas(480,380);
 canvas.center();
 video=createCapture(VIDEO);
 video.hide();
-video.size(480,380)
+video.size(480,380);
 }
 function begin(){
 objectDetector=ml5.objectDetector('cocossd',modelLoaded);
