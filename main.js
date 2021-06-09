@@ -16,10 +16,8 @@ function draw(){
             noFill();
             stroke("#FF0000");
             rect(object[i].x,object[i].y,object[i].width,object[i].height,);
-            object=objects;
-            video.stop();
             objectDetector.detect(gotResult);
-         if (object.label=objectname);
+         if (object.label==objectname)
          {
              document.getElementById("status").innerHTML="Object Detected";
              video.stop();
