@@ -1,26 +1,27 @@
 status="";
 video="";
 object=[];
-objects=[];
 function draw(){
-    image(video,50,50,480,380);
+    image(video,0,0,480,380);
     if(status !=""){
         objectDetector.detect(video,gotResult);
+        objectname=document.getElementById("objname").value;
         for(i=0;i<object.length;i++){
             document.getElementById("status").innerHTML="Status: Object has been detected";
-            document.getElementById("objectcount").innerHTML="No. of objects detected are: "+object.length;
-            objectname=document.getElementById("objname");
-    
+            
             percent=floor(object[i].confidence*100);
             text(object[i].label+" "+percent+" %",object[i].x+15,object[i].y+15);
             noFill();
             stroke("#FF0000");
             rect(object[i].x,object[i].y,object[i].width,object[i].height,);
-            objectDetector.detect(gotResult);
-         if (object.label==objectname)
+         if (object[i].label==objectname)
          {
-             document.getElementById("status").innerHTML="Object Detected";
+             document.getElementById("objectfound").innerHTML="Object Found";
              video.stop();
+         }
+         else
+         {
+             document.getElementById("objectfound").innerHTML="Object Not Found"
          }
        }
     }
